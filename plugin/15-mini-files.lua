@@ -1,6 +1,6 @@
 -- LuaJIT local lookup perf
+local sbyte = string.byte
 local sfind = string.find
-local ssub = string.sub
 
 -- Use set instead of list for direct lookup
 local ignore_set = {
@@ -77,8 +77,8 @@ end
 local show_dotfiles = true
 
 local filter_dot = function(fs_entry)
-  -- faster than vim.startswith(fs_entry.name, '.')
-  local is_dot = ssub(fs_entry.name, 1, 1) == '.'
+  -- LuaJIT string.byte compares with no string allocation
+  local is_dot = sbyte(fs_entry.name, 1) == 46  -- 46 is the ASCII code for '.'
   -- '1, true' for plain search instead of pattern comparison
   local is_in_path = sfind(MiniFiles.get_fs_entry().path, fs_entry.path, 1, true) ~= nil
   return not is_dot or is_in_path
