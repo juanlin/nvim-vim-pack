@@ -44,5 +44,6 @@ vim.keymap.set('n', '<leader>ff', '<Cmd>Pick files<CR>', { desc = 'Files' })
 vim.keymap.set('n', '<leader>fg', '<Cmd>Pick grep_live<CR>', { desc = 'Grep live' })
 vim.keymap.set('n', '<leader>fb', '<Cmd>Pick buffers<CR>', { desc = 'Buffers' })
 vim.keymap.set('n', '<leader>fo', '<Cmd>Pick oldfiles<CR>', { desc = 'Old files' })
+vim.keymap.set('n', '<leader>fh', '<Cmd>Pick history<CR>', { desc = 'History' })
 
 require('mini.completion').setup()
