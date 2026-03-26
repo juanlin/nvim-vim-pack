@@ -13,7 +13,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.nvim": {
-      "rev": "439cdcd6992bc9012efd7d8ed7a7b7a0f1fac32a",
+      "rev": "debd726e1b620e9934d554c2772de2e99cd3ccbe",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
     "nvim-highlight-colors": {
@@ -21,11 +21,11 @@
       "src": "https://github.com/brenoprata10/nvim-highlight-colors"
     },
     "nvim-lspconfig": {
-      "rev": "4daa1436595dbce4c6151f75c38a0d855796c554",
+      "rev": "16812abf0e8d8175155f26143a8504e8253e92b0",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
-      "rev": "6620ae1c44dfa8623b22d0cbf873a9e8d073b849",
+      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "vim-fugitive": {
