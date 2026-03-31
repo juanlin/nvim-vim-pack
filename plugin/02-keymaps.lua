@@ -15,3 +15,7 @@ map('n', '<C-l>', '<C-w>l', { desc = 'Focus right' })
 map({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Yank to OS clipboard' })
 map({ 'n', 'x' }, '<leader>p', '"+p', { desc = 'Paste OS clipboard' })
 map({ 'n', 'x' }, '<leader>P', '"+P', { desc = 'Paste OS clipboard before' })
+
+-- Undo tree
+vim.cmd("packadd nvim.undotree")
+map('n', '<leader>u', require('undotree').open)
