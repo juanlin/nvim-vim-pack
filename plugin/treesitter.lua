@@ -1,7 +1,10 @@
 vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter' })
 
+local ts_settings = vim.api.nvim_create_augroup('my-ts-settings', { clear = true })
+
 vim.api.nvim_create_autocmd('PackChanged', {
-  group = vim.api.nvim_create_augroup('my-ts-settings', { clear = true }),
+  desc = "Call TSUpdate every time nvim-treesitter is updated",
+  group = ts_settings,
   callback = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
     if name == 'nvim-treesitter' and kind == 'update' then
@@ -20,7 +23,7 @@ require('nvim-treesitter').install(languages)
 
 vim.api.nvim_create_autocmd('FileType', {
   desc = 'Set up nvim-treesitter highlighting and indentation',
-  group = vim.api.nvim_create_augroup('my-ts-settings', { clear = true });
+  group = ts_settings,
   pattern = languages,
   callback = function()
     -- Syntax highlighting, provided by Neovim
