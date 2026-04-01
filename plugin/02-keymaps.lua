@@ -18,4 +18,4 @@ map({ 'n', 'x' }, '<leader>P', '"+P', { desc = 'Paste OS clipboard before' })
 
 -- Undo tree
 vim.cmd("packadd nvim.undotree")
-map('n', '<leader>u', require('undotree').open)
+map('n', '<leader>u', require('undotree').open, { desc = 'Undo tree' })
