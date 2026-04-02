@@ -31,6 +31,7 @@ later(function()
   vim.lsp.enable({
     'lua_ls',
     'rust_analyzer',
+    'pyright',
   })
 
   -- Nicer borders on windows and popups
