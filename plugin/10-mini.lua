@@ -1,22 +1,30 @@
 vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
 
+-- Mini Icons non-lazy for dependency
 require('mini.icons').setup()
 MiniIcons.mock_nvim_web_devicons()
 
+-- Mini Notify non-lazy for error messages maybe?
 require('mini.notify').setup()
 
+-- Mini lazy "later" and "on_event" loading
 local misc = require('mini.misc')
 local later = function(f) misc.safely('later', f) end
 local on_event = function(ev, f) misc.safely('event:' .. ev, f) end
 
 later(function()
+  -- Mini Commandline Completion
   require('mini.cmdline').setup()
+
+  -- Mini Indentscope
   require('mini.indentscope').setup({
     symbol = '',
     options = {
       try_as_border = true,
     }
   })
+
+  -- Mini Surround
   require('mini.surround').setup({
     mappings = {
       -- Add g- prefix to avoid clobbering
@@ -29,6 +37,8 @@ later(function()
       update_n_lines = 'gsn',
     },
   })
+
+  -- Mini Pick and Mini Extras 
   require('mini.extra').setup() -- extra resources for picker (i.e.: oldfiles)
   require('mini.pick').setup({
     mappings = {
@@ -42,6 +52,7 @@ later(function()
   vim.keymap.set('n', '<leader>fo', '<Cmd>Pick oldfiles<CR>', { desc = 'Old files' })
   vim.keymap.set('n', '<leader>fh', '<Cmd>Pick history<CR>', { desc = 'History' })
 
+  -- OTHER non-mini plugins
   vim.pack.add({
     'https://github.com/tpope/vim-fugitive',
     'https://github.com/karb94/neoscroll.nvim',
@@ -59,6 +70,7 @@ later(function()
   vim.keymap.set('n', '<leader>c', '<Cmd>HighlightColors Toggle<CR>', { desc = 'Toggle CSS colors' })
 end)
 
+-- Mini Completion (trigger on InsertEnter)
 on_event('InsertEnter', function()
   require('mini.completion').setup()
 end)
