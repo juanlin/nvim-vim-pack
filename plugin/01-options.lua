@@ -32,3 +32,6 @@ local undodir = vim.fn.stdpath('cache') .. '/undo'
 vim.fn.mkdir(undodir, 'p')
 o.undodir = undodir
 o.undofile = true
+
+-- UI2
+require('vim._core.ui2').enable()
