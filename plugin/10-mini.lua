@@ -4,9 +4,6 @@ vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
 require('mini.icons').setup()
 MiniIcons.mock_nvim_web_devicons()
 
--- Mini Notify non-lazy for error messages maybe?
-require('mini.notify').setup()
-
 -- Mini lazy "later" and "on_event" loading
 local misc = require('mini.misc')
 local later = function(f) misc.safely('later', f) end
@@ -15,6 +12,9 @@ local on_event = function(ev, f) misc.safely('event:' .. ev, f) end
 later(function()
   -- Mini Commandline Completion
   require('mini.cmdline').setup()
+
+  -- Mini Notify
+  require('mini.notify').setup()
 
   -- Mini Indentscope
   require('mini.indentscope').setup({
